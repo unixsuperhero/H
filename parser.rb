@@ -9,7 +9,8 @@ class HeroParser
   attr_accessor :metadata, :name, :tags
 
   def initialize(stdin=$stdin)
-    @data = stdin.read
+    @data = IO.read(stdin) if File.exist?(stdin)
+    @data ||= stdin.read
     @lines = @data.split(/\n/)
 
     extract_tags
@@ -42,8 +43,8 @@ class HeroParser
   end
 end
 
-p = HeroParser.new
+p = HeroParser.new ARGV.first || $stdin
 ap [:@name, :@metadata, :@tags, :@body].map{|x| p.instance_variable_get(x) }, raw: true, index: false
 
 __END__
-[
+
