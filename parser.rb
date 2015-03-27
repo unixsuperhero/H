@@ -9,7 +9,10 @@ class HeroParser
   attr_accessor :metadata, :name, :tags
 
   def initialize(stdin=$stdin)
-    @data = IO.read(stdin) if File.exist?(stdin)
+    if stdin.is_a?(String)
+      fd = IO.sysopen(stdin)
+      stdin = IO.open(fd)
+    end
     @data ||= stdin.read
     @lines = @data.split(/\n/)
 
