@@ -4,6 +4,7 @@ require 'awesome_print'
 require 'pry'
 require 'optparse'
 require 'singleton'
+require 'mkmf'
 
 # H command requirements
 require 'h/config'

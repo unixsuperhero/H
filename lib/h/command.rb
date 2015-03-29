@@ -24,9 +24,15 @@ module H
         Note.run(args, stdin)
       when /p(rojects?)?/i
         Project.run(args, stdin)
+      when /path/i
+        system("h-path", *args)
       else
         puts format('%s command not found...', subcommand)
       end
     end
+  end
+
+  def self.run(args=ARGV.clone, stdin=$stdin)
+    Command.run(args, stdin)
   end
 end
