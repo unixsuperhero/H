@@ -18,8 +18,8 @@ module H
 
     def run
       case subcommand
-      when /n(otes?)?/i
-        Note.run(args, stdin)
+      # when /n(otes?)?/i
+      #   Note.run(args, stdin)
       when /path/i
         system("h-path", *args)
       else
