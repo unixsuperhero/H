@@ -18,12 +18,12 @@ module H
 
     def run
       case subcommand
-      when /h(ack)?/i
-        Hack.run(args, stdin)
+      # when /h(ack)?/i
+      #   Hack.run(args, stdin)
       when /n(otes?)?/i
         Note.run(args, stdin)
-      when /p(rojects?)?/i
-        Project.run(args, stdin)
+      # when /p(rojects?)?/i
+      #   Project.run(args, stdin)
       when /path/i
         system("h-path", *args)
       else
