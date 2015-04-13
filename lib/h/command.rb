@@ -23,7 +23,7 @@ module H
       when /path/i
         system("h-path", *args)
       else
-        if H.env.h_command?(subcommand)
+        if Env.h_command?(subcommand)
           system("h-#{subcommand}", *args)
         else
           puts format('%s command not found...', subcommand)
